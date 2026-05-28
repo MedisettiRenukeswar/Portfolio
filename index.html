@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Renukeswar Medisetti | Robotics & AI Engineer</title>
+  <meta name="description" content="Portfolio of Renukeswar Medisetti – Robotics & AI Engineer specializing in autonomous systems, computer vision, ROS2, and full-stack development." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <style>
+    /* ── CSS Variables ─────────────────────────────────────── */
+    :root {
+      --navy:      #0B1C3D;
+      --blue:      #2563EB;
+      --blue-lt:   #EFF4FF;
+      --gold:      #F59E0B;
+      --gold-lt:   #FFFBEB;
+      --bg:        #F8F9FC;
+      --surface:   #FFFFFF;
+      --border:    #E4E8F0;
+      --text:      #1A2340;
+      --muted:     #6B7A99;
+      --radius:    12px;
+      --shadow:    0 2px 16px rgba(11,28,61,0.08);
+      --shadow-lg: 0 8px 40px rgba(11,28,61,0.13);
+      --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ── Reset ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Typography ────────────────────────────────────────── */
+    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; line-height: 1.25; color: var(--navy); }
+    h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 800; }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; }
+    h3 { font-size: 1.2rem; font-weight: 600; }
+    p  { color: var(--muted); font-weight: 300; }
+
+    /* ── Layout ────────────────────────────────────────────── */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 96px 0; }
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: var(--blue-lt);
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+    .section-title { margin-bottom: 8px; }
+    .section-sub  { color: var(--muted); margin-bottom: 48px; max-width: 520px; font-size: 1rem; }
+
+    /* ── Navbar ────────────────────────────────────────────── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      background: rgba(248,249,252,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700; font-size: 1.15rem; color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--blue); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 500; color: var(--muted);
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+      height: 2px; background: var(--blue);
+      transform: scaleX(0); transition: transform var(--transition);
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta {
+      background: var(--navy); color: #fff !important;
+      padding: 8px 18px; border-radius: 8px;
+      font-size: 0.85rem; font-weight: 500;
+      transition: background var(--transition);
+    }
+    .nav-cta:hover { background: var(--blue) !important; color: #fff; }
+    .nav-cta::after { display: none !important; }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer;
+      background: none; border: none; padding: 4px;
+    }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: var(--transition); }
+    .mobile-menu {
+      display: none; position: fixed; top: 64px; left: 0; right: 0;
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      padding: 16px 24px; flex-direction: column; gap: 16px; z-index: 998;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 0.95rem; font-weight: 500; color: var(--text); padding: 6px 0; border-bottom: 1px solid var(--border); }
+
+    /* ── Hero ──────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 80px;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(37,99,235,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(245,158,11,0.06) 0%, transparent 60%),
+        var(--bg);
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 100px; padding: 6px 14px;
+      font-size: 0.78rem; font-weight: 500; color: var(--muted);
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+      opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards;
+    }
+    .hero-badge .dot { width: 7px; height: 7px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+    .hero-name { opacity: 0; animation: fadeUp 0.7s ease 0.2s forwards; }
+    .hero-title {
+      font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 500;
+      color: var(--blue); letter-spacing: 0.05em;
+      font-family: 'DM Sans', sans-serif;
+      margin-top: 8px; margin-bottom: 20px;
+      opacity: 0; animation: fadeUp 0.7s ease 0.35s forwards;
+    }
+    .hero-tagline {
+      font-size: 1.05rem; color: var(--muted); font-weight: 300;
+      margin-bottom: 32px; max-width: 440px;
+      opacity: 0; animation: fadeUp 0.7s ease 0.45s forwards;
+    }
+    .tech-tags {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px;
+      opacity: 0; animation: fadeUp 0.7s ease 0.55s forwards;
+    }
+    .tag {
+      font-size: 0.75rem; font-weight: 500; padding: 5px 12px;
+      border-radius: 100px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--muted);
+      transition: all var(--transition); cursor: default;
+    }
+    .tag:hover { background: var(--blue-lt); border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+    .tag.gold { background: var(--gold-lt); border-color: #fcd34d; color: #92400e; }
+    .hero-btns {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.7s ease 0.65s forwards;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--navy); color: #fff;
+      padding: 12px 24px; border-radius: 10px;
+      font-size: 0.9rem; font-weight: 500;
+      transition: all var(--transition);
+      box-shadow: 0 4px 14px rgba(11,28,61,0.25);
+    }
+    .btn-primary:hover { background: var(--blue); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.3); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1.5px solid var(--border); color: var(--text);
+      padding: 11px 22px; border-radius: 10px;
+      font-size: 0.9rem; font-weight: 500;
+      transition: all var(--transition); background: var(--surface);
+    }
+    .btn-outline:hover { border-color: var(--navy); color: var(--navy); transform: translateY(-2px); box-shadow: var(--shadow); }
+
+    /* Hero visual */
+    .hero-visual {
+      display: flex; justify-content: center; align-items: center;
+      opacity: 0; animation: fadeIn 1s ease 0.5s forwards;
+    }
+    .photo-frame {
+      width: 320px; height: 380px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #EFF4FF 0%, #DBEAFE 100%);
+      border: 2px solid var(--border);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 12px; position: relative; overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .photo-frame::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 180px; height: 180px;
+      background: radial-gradient(circle, rgba(37,99,235,0.15), transparent);
+      border-radius: 50%;
+    }
+    .photo-frame::after {
+      content: ''; position: absolute; bottom: -40px; left: -40px;
+      width: 140px; height: 140px;
+      background: radial-gradient(circle, rgba(245,158,11,0.12), transparent);
+      border-radius: 50%;
+    }
+    .photo-avatar {
+      width: 90px; height: 90px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700; color: #fff;
+      position: relative; z-index: 1;
+    }
+    .photo-hint { display: none; }
+    .floating-chip {
+      position: absolute; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 100px;
+      padding: 6px 14px; font-size: 0.72rem; font-weight: 600;
+      color: var(--navy); box-shadow: var(--shadow); z-index: 2;
+    }
+    .chip1 { top: 24px; right: -16px; animation: float 3s ease-in-out infinite; }
+    .chip2 { bottom: 60px; left: -20px; animation: float 3s ease-in-out 1s infinite; }
+    .chip3 { bottom: 24px; right: 20px; animation: float 3s ease-in-out 1.5s infinite; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+    /* Stats row */
+    .hero-stats {
+      display: flex; gap: 32px; margin-top: 40px; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.7s ease 0.75s forwards;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); display: block; }
+    .stat-lbl { font-size: 0.72rem; color: var(--muted); font-weight: 500; letter-spacing: 0.05em; }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+    /* ── About ─────────────────────────────────────────────── */
+    #about { background: var(--surface); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .about-text p { margin-bottom: 16px; }
+    .about-highlights { display: flex; flex-direction: column; gap: 16px; }
+    .highlight-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 24px;
+      display: flex; gap: 16px; align-items: flex-start;
+      transition: all var(--transition);
+    }
+    .highlight-card:hover { border-color: var(--blue); box-shadow: var(--shadow); transform: translateX(4px); }
+    .highlight-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: var(--blue-lt); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .highlight-card h4 { font-size: 0.9rem; color: var(--navy); margin-bottom: 2px; font-family: 'DM Sans', sans-serif; font-weight: 600; }
+    .highlight-card p { font-size: 0.82rem; margin: 0; }
+
+    /* ── Education ─────────────────────────────────────────── */
+    #education { background: var(--bg); }
+    .edu-timeline { display: flex; flex-direction: column; gap: 0; }
+    .edu-item {
+      display: grid; grid-template-columns: 200px 1fr;
+      gap: 0; position: relative;
+    }
+    .edu-item::before {
+      content: ''; position: absolute;
+      left: 199px; top: 0; bottom: 0;
+      width: 1px; background: var(--border);
+    }
+    .edu-year {
+      padding: 28px 32px 28px 0; text-align: right;
+      font-size: 0.78rem; font-weight: 600; color: var(--muted);
+      letter-spacing: 0.05em; padding-top: 34px;
+    }
+    .edu-content {
+      padding: 24px 0 24px 40px; position: relative;
+    }
+    .edu-dot {
+      position: absolute; left: -6px; top: 32px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--blue); border: 2px solid var(--surface);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.2);
+    }
+    .edu-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 24px;
+      transition: all var(--transition);
+    }
+    .edu-card:hover { border-color: var(--blue); box-shadow: var(--shadow); }
+    .edu-card h3 { font-size: 1rem; font-family: 'DM Sans', sans-serif; font-weight: 600; margin-bottom: 4px; }
+    .edu-card .inst { font-size: 0.85rem; color: var(--blue); font-weight: 500; margin-bottom: 6px; }
+    .edu-card .grade {
+      display: inline-block; font-size: 0.75rem; font-weight: 600;
+      background: var(--gold-lt); color: #92400e;
+      padding: 2px 10px; border-radius: 100px; border: 1px solid #fcd34d;
+    }
+
+    /* ── Skills ────────────────────────────────────────────── */
+    #skills { background: var(--surface); }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .skill-group {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px;
+      transition: all var(--transition);
+    }
+    .skill-group:hover { border-color: var(--blue); box-shadow: var(--shadow); }
+    .skill-group-title {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .skill-group-icon {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: var(--blue-lt);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .skill-group-title h3 { font-size: 0.9rem; font-family: 'DM Sans', sans-serif; }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+    .pill {
+      font-size: 0.72rem; font-weight: 500; padding: 4px 10px;
+      border-radius: 100px; background: var(--surface);
+      border: 1px solid var(--border); color: var(--text);
+      transition: all var(--transition);
+    }
+    .pill:hover { background: var(--blue-lt); border-color: var(--blue); color: var(--blue); }
+
+    /* ── Projects ──────────────────────────────────────────── */
+    #projects { background: var(--bg); }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .project-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px;
+      transition: all var(--transition); position: relative; overflow: hidden;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .project-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: linear-gradient(90deg, var(--blue), var(--gold));
+      opacity: 0; transition: opacity var(--transition);
+    }
+    .project-card:hover { border-color: var(--blue); box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .project-card:hover::before { opacity: 1; }
+    .project-meta {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;
+    }
+    .project-num {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      color: var(--blue); font-family: 'DM Sans', sans-serif;
+    }
+    .project-date {
+      font-size: 0.7rem; color: var(--muted); font-weight: 400;
+      white-space: nowrap;
+    }
+    .project-card h3 { font-size: 1.05rem; color: var(--navy); font-family: 'DM Sans', sans-serif; font-weight: 600; line-height: 1.35; }
+    .project-desc { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
+    .project-tech { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tech-badge {
+      font-size: 0.68rem; font-weight: 600; padding: 3px 9px;
+      border-radius: 100px; background: var(--blue-lt);
+      border: 1px solid rgba(37,99,235,0.2); color: var(--blue);
+    }
+    .project-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 500; color: var(--blue);
+      margin-top: auto; transition: gap var(--transition);
+    }
+    .project-link:hover { gap: 10px; }
+    .project-link svg { transition: transform var(--transition); }
+    .project-link:hover svg { transform: translateX(3px); }
+
+    /* ── Certifications ────────────────────────────────────── */
+    #certifications { background: var(--surface); }
+    .certs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .cert-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 18px 20px;
+      transition: all var(--transition); display: flex; gap: 14px; align-items: flex-start;
+    }
+    .cert-card:hover { border-color: var(--gold); box-shadow: 0 4px 20px rgba(245,158,11,0.12); transform: translateY(-2px); }
+    .cert-icon {
+      width: 38px; height: 38px; flex-shrink: 0; border-radius: 9px;
+      background: var(--gold-lt); border: 1px solid #fcd34d;
+      display: flex; align-items: center; justify-content: center; font-size: 1rem;
+    }
+    .cert-card h4 { font-size: 0.82rem; font-family: 'DM Sans', sans-serif; font-weight: 600; color: var(--navy); margin-bottom: 3px; line-height: 1.3; }
+    .cert-card .cert-issuer { font-size: 0.72rem; color: var(--muted); margin: 0; }
+    .cert-card .cert-date { font-size: 0.68rem; color: var(--blue); font-weight: 500; margin-top: 4px; }
+
+    /* ── Experience ────────────────────────────────────────── */
+    #experience { background: var(--bg); }
+    .exp-cards { display: flex; flex-direction: column; gap: 20px; }
+    .exp-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px; transition: all var(--transition);
+      display: grid; grid-template-columns: 1fr auto; gap: 16px;
+    }
+    .exp-card:hover { border-color: var(--blue); box-shadow: var(--shadow); }
+    .exp-role { font-size: 1.05rem; font-family: 'DM Sans', sans-serif; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+    .exp-company { font-size: 0.88rem; color: var(--blue); font-weight: 500; margin-bottom: 12px; }
+    .exp-points { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .exp-points li {
+      font-size: 0.85rem; color: var(--muted); padding-left: 16px; position: relative;
+    }
+    .exp-points li::before { content: '→'; position: absolute; left: 0; color: var(--blue); font-size: 0.75rem; }
+    .exp-badge {
+      height: fit-content; background: var(--blue-lt); border: 1px solid rgba(37,99,235,0.2);
+      border-radius: 100px; padding: 6px 14px;
+      font-size: 0.72rem; font-weight: 600; color: var(--blue);
+      white-space: nowrap; text-align: center;
+    }
+
+    /* ── Contact ───────────────────────────────────────────── */
+    #contact { background: var(--surface); }
+    .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .contact-info h2 { margin-bottom: 12px; }
+    .contact-info p { margin-bottom: 32px; }
+    .contact-links { display: flex; flex-direction: column; gap: 14px; }
+    .contact-link-item {
+      display: flex; align-items: center; gap: 14px;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px 18px;
+      transition: all var(--transition);
+    }
+    .contact-link-item:hover { border-color: var(--blue); box-shadow: var(--shadow); transform: translateX(4px); }
+    .contact-link-icon {
+      width: 38px; height: 38px; flex-shrink: 0; border-radius: 9px;
+      background: var(--blue-lt); display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .contact-link-item .clabel { font-size: 0.7rem; color: var(--muted); margin: 0; }
+    .contact-link-item .cvalue { font-size: 0.88rem; color: var(--navy); font-weight: 500; }
+
+    /* Form */
+    .contact-form-wrap { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
+    .contact-form-wrap h3 { font-size: 1.1rem; font-family: 'DM Sans', sans-serif; font-weight: 600; margin-bottom: 24px; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; letter-spacing: 0.03em; }
+    .form-group input,
+    .form-group textarea {
+      width: 100%; padding: 12px 14px;
+      border: 1.5px solid var(--border); border-radius: 9px;
+      background: var(--surface); color: var(--text);
+      font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+      transition: border-color var(--transition);
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      width: 100%; padding: 13px;
+      background: var(--navy); color: #fff;
+      border: none; border-radius: 9px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 600;
+      cursor: pointer; transition: all var(--transition);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .form-submit:hover { background: var(--blue); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,99,235,0.3); }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .form-status {
+      margin-top: 14px; padding: 10px 14px; border-radius: 8px;
+      font-size: 0.82rem; font-weight: 500; text-align: center; display: none;
+    }
+    .form-status.success { background: #ecfdf5; border: 1px solid #6ee7b7; color: #065f46; display: block; }
+    .form-status.error { background: #fef2f2; border: 1px solid #fca5a5; color: #7f1d1d; display: block; }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,0.6);
+      padding: 40px 0;
+    }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #fff; font-weight: 700; }
+    .footer-logo span { color: #93c5fd; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.5); transition: color var(--transition); }
+    .footer-links a:hover { color: #fff; }
+    .footer-copy { font-size: 0.78rem; }
+
+    /* ── Scroll Reveal ─────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── Responsive ────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { order: -1; }
+      .photo-frame { width: 240px; height: 280px; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .projects-grid { grid-template-columns: 1fr; }
+      .certs-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-inner { grid-template-columns: 1fr; gap: 32px; }
+      .edu-item { grid-template-columns: 1fr; }
+      .edu-item::before { display: none; }
+      .edu-year { text-align: left; padding: 0 0 4px 0; }
+      .edu-content { padding-left: 20px; }
+    }
+    @media (max-width: 580px) {
+      section { padding: 64px 0; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .certs-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 20px; }
+      .exp-card { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ NAVBAR ══ -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">Renukeswar <span>M.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#education" onclick="closeMenu()">Education</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#projects" onclick="closeMenu()">Projects</a>
+  <a href="#certifications" onclick="closeMenu()">Certifications</a>
+  <a href="#experience" onclick="closeMenu()">Experience</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- ═══════════════════════════════════ HERO ════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Open to Opportunities · India
+        </div>
+        <h1 class="hero-name">Renukeswar<br>Medisetti</h1>
+        <p class="hero-title">Robotics &amp; AI Engineer</p>
+        <p class="hero-tagline">Building intelligent autonomous systems — from sensor fusion and SLAM to computer vision pipelines and end-to-end AI applications.</p>
+        <div class="tech-tags">
+          <span class="tag">ROS2</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">Deep Learning</span>
+          <span class="tag">SLAM</span>
+          <span class="tag">Path Planning</span>
+          <span class="tag gold">YOLOv8</span>
+          <span class="tag gold">Sensor Fusion</span>
+          <span class="tag">MERN Stack</span>
+          <span class="tag">Python</span>
+          <span class="tag">AWS · Azure</span>
+        </div>
+        <div class="hero-btns">
+          <a href="https://github.com/MedisettiRenukeswar" target="_blank" rel="noopener" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/renukeswar-medisetti-rk/" target="_blank" rel="noopener" class="btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="#contact" class="btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            Hire Me
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">7+</span><span class="stat-lbl">Projects</span></div>
+          <div class="stat"><span class="stat-num">10+</span><span class="stat-lbl">Certifications</span></div>
+          <div class="stat"><span class="stat-num">3+</span><span class="stat-lbl">Internships</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="photo-frame">
+          <img src="profile_pic.jpeg" alt="Renukeswar Medisetti" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:22px;position:relative;z-index:1;" />
+          <div class="floating-chip chip1">🤖 ROS2</div>
+          <div class="floating-chip chip2">🧠 AI/ML</div>
+          <div class="floating-chip chip3">👁 CV</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ ABOUT ══ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <span class="section-label">About Me</span>
+        <h2 class="section-title">Bridging Intelligence<br>with Autonomy</h2>
+        <p>I'm an enthusiastic and self-driven engineer with a deep passion for robotics, autonomous systems, and AI. My hands-on work spans computer vision pipelines, multi-sensor fusion, deep learning, and full-stack development.</p>
+        <p style="margin-top:16px">I actively build robotics-aligned projects using ROS2, SLAM, path planning, and sensor fusion — while also developing end-to-end applications using the MERN stack. I leverage generative AI and prompt engineering to accelerate development and creative problem-solving.</p>
+        <p style="margin-top:16px">My goal is to grow as a robotics and AI engineer, contribute to impactful real-world projects, and collaborate with teams building the next generation of autonomous and intelligent systems.</p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <div class="highlight-icon">🤖</div>
+          <div>
+            <h4>Autonomous Systems</h4>
+            <p>ROS2, SLAM, path planning (A*, RRT*), EKF-based state estimation, and motion planning for real-world robots.</p>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">👁</div>
+          <div>
+            <h4>Computer Vision & AI</h4>
+            <p>YOLOv8, OpenCV, ArUco markers, pose estimation, face recognition, and deep learning model deployment.</p>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">☁</div>
+          <div>
+            <h4>Cloud & Full-Stack</h4>
+            <p>AWS, Azure, MERN stack development — bridging intelligent algorithms with reliable, user-friendly applications.</p>
+          </div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">⚡</div>
+          <div>
+            <h4>Virtual Internships</h4>
+            <p>Google (AI/ML) and Juniper Networks (Cloud Networking) — practical industry exposure in cutting-edge domains.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ EDUCATION ════ -->
+<section id="education">
+  <div class="container">
+    <span class="section-label">Academic Background</span>
+    <h2 class="section-title">Education</h2>
+    <p class="section-sub">A strong academic foundation across engineering, mathematics, and computing.</p>
+    <div class="edu-timeline reveal">
+
+      <div class="edu-item">
+        <div class="edu-year">2021 – 2025</div>
+        <div class="edu-content">
+          <div class="edu-dot"></div>
+          <div class="edu-card">
+            <h3>B.Tech – Computer Science &amp; Engineering</h3>
+            <p class="inst">Sreenidhi Institute of Science &amp; Technology, Hyderabad</p>
+            <span class="grade">CGPA: 7.19 / 10</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-year">2019 – 2021</div>
+        <div class="edu-content">
+          <div class="edu-dot"></div>
+          <div class="edu-card">
+            <h3>Intermediate (MPC) – Class XII</h3>
+            <p class="inst">Sri Vivekananda Junior College, Nalgonda, Telangana</p>
+            <span class="grade">96.5%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-year">2018 – 2019</div>
+        <div class="edu-content">
+          <div class="edu-dot"></div>
+          <div class="edu-card">
+            <h3>Secondary School Certificate (SSC) – Class X</h3>
+            <p class="inst">ZPHS Pochireddypally, Nalgonda, Telangana</p>
+            <span class="grade">GPA: 9.3 / 10</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ SKILLS ══ -->
+<section id="skills">
+  <div class="container">
+    <span class="section-label">Technical Expertise</span>
+    <h2 class="section-title">Skills</h2>
+    <p class="section-sub">A broad technical stack spanning robotics, AI/ML, cloud, and web development.</p>
+    <div class="skills-grid reveal">
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <div class="skill-group-icon">🤖</div>
+          <h3>Robotics &amp; ROS2</h3>
+        </div>
+        <div class="skill-pills">
+          <span class="pill">ROS2</span><span class="pill">SLAM</span><span class="pill">Path Planning</span>
+          <span class="pill">A* / RRT*</span><span class="pill">Kinematics</span><span class="pill">Trajectory Control</span>
+          <span class="pill">EKF</span><span class="pill">Robotic Grasping</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <div class="skill-group-icon">👁</div>
+          <h3>Computer Vision</h3>
+        </div>
+        <div class="skill-pills">
+          <span class="pill">OpenCV</span><span class="pill">YOLOv8</span><span class="pill">SSD</span>
+          <span class="pill">ArUco Markers</span><span class="pill">Pose Estimation</span><span class="pill">Face Recognition</span>
+          <span class="pill">TensorFlow.js</span><span class="pill">OpenCV.js</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <div class="skill-group-icon">🧠</div>
+          <h3>AI / ML</h3>
+        </div>
+        <div class="skill-pills">
+          <span class="pill">Deep Learning</span><span class="pill">TensorFlow</span><span class="pill">PyTorch</span>
+          <span class="pill">Scikit-learn</span><span class="pill">Sensor Fusion</span><span class="pill">Prompt Engineering</span>
+          <span class="pill">Generative AI</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <div class="skill-group-icon">☁</div>
+          <h3>Cloud &amp; DevOps</h3>
+        </div>
+        <div class="skill-pills">
+          <span class="pill">AWS</span><span class="pill">Azure</span><span class="pill">Cloud Networking</span>
+          <span class="pill">Docker</span><span class="pill">Git / GitHub</span><span class="pill">Linux</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <div class="skill-group-icon">💻</div>
+          <h3>Web Development</h3>
+        </div>
+        <div class="skill-pills">
+          <span class="pill">MongoDB</span><span class="pill">Express.js</span><span class="pill">React</span>
+          <span class="pill">Node.js</span><span class="pill">HTML/CSS</span><span class="pill">JavaScript</span>
+          <span class="pill">REST APIs</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">
+          <div class="skill-group-icon">⚙</div>
+          <h3>Programming</h3>
+        </div>
+        <div class="skill-pills">
+          <span class="pill">Python</span><span class="pill">C++</span><span class="pill">Embedded C</span>
+          <span class="pill">MATLAB</span><span class="pill">SQL</span><span class="pill">Arduino</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ PROJECTS ═══ -->
+<section id="projects">
+  <div class="container">
+    <span class="section-label">Portfolio</span>
+    <h2 class="section-title">Projects</h2>
+    <p class="section-sub">Hands-on robotics and AI projects spanning autonomous navigation, vision systems, and full-stack applications.</p>
+    <div class="projects-grid reveal">
+
+      <!-- P1 -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-num">PROJECT 01</span>
+          <span class="project-date">March 2026</span>
+        </div>
+        <h3>Multi-Sensor Fusion for Autonomous Driving</h3>
+        <p class="project-desc">Developed an EKF-based sensor fusion framework integrating IMU, Camera, and Ultrasonic/LiDAR data for robust state estimation. Implemented real-time localization and obstacle detection, enabling reliable autonomous driving capabilities in dynamic environments.</p>
+        <div class="project-tech">
+          <span class="tech-badge">Python</span><span class="tech-badge">ROS2</span><span class="tech-badge">EKF</span>
+          <span class="tech-badge">IMU</span><span class="tech-badge">LiDAR</span><span class="tech-badge">OpenCV</span>
+        </div>
+        <a href="https://github.com/MedisettiRenukeswar" target="_blank" rel="noopener" class="project-link">
+          View on GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- P2 -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-num">PROJECT 02</span>
+          <span class="project-date">Feb – Mar 2026</span>
+        </div>
+        <h3>Autonomous Drone Path Planning in 3D Environment</h3>
+        <p class="project-desc">Built and benchmarked A* and RRT* algorithms for 3D obstacle-aware path planning in simulated drone environments. Implemented heuristic optimizations that significantly reduced computation time while maintaining path quality in cluttered spaces.</p>
+        <div class="project-tech">
+          <span class="tech-badge">Python</span><span class="tech-badge">A*</span><span class="tech-badge">RRT*</span>
+          <span class="tech-badge">ROS2</span><span class="tech-badge">Gazebo</span><span class="tech-badge">3D Planning</span>
+        </div>
+        <a href="https://github.com/MedisettiRenukeswar" target="_blank" rel="noopener" class="project-link">
+          View on GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- P3 -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-num">PROJECT 03</span>
+          <span class="project-date">Apr – May 2026</span>
+        </div>
+        <h3>Computer Vision Object Detection &amp; Robotic Grasping</h3>
+        <p class="project-desc">Built a real-time perception pipeline using YOLOv8 and SSD for object detection, with OpenCV for grasp point localization. Transmitted detected coordinates to a robotic arm controller, implementing a complete vision-to-action pipeline suitable for warehouse automation.</p>
+        <div class="project-tech">
+          <span class="tech-badge">Python</span><span class="tech-badge">YOLOv8</span><span class="tech-badge">SSD</span>
+          <span class="tech-badge">OpenCV</span><span class="tech-badge">Robotic Arm</span>
+        </div>
+        <a href="https://github.com/MedisettiRenukeswar" target="_blank" rel="noopener" class="project-link">
+          View on GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- P4 -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-num">PROJECT 04</span>
+          <span class="project-date">Dec 2025 – Jan 2026</span>
+        </div>
+        <h3>Object Pose Estimation Using ArUco Markers</h3>
+        <p class="project-desc">Implemented a 6-DOF pose estimation system using OpenCV's ArUco detection and solvePnP with camera calibration. Achieved &lt;2mm translation and &lt;0.5° rotation error, enabling applications in robotic manipulation and AR overlay systems.</p>
+        <div class="project-tech">
+          <span class="tech-badge">Python</span><span class="tech-badge">OpenCV</span><span class="tech-badge">ArUco</span>
+          <span class="tech-badge">Camera Calibration</span><span class="tech-badge">6-DOF</span>
+        </div>
+        <a href="https://github.com/MedisettiRenukeswar" target="_blank" rel="noopener" class="project-link">
+          View on GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- P5 -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-num">PROJECT 05</span>
+          <span class="project-date">Nov – Dec 2025</span>
+        </div>
+        <h3>Robotic Arm Kinematics, Inverse Kinematics &amp; Trajectory Control</h3>
+        <p class="project-desc">Derived and implemented forward/inverse kinematics for a multi-DOF robotic arm using DH parameters and Jacobian-based IK solvers. Designed smooth trajectory profiles (trapezoidal velocity, cubic spline) and validated joint-space control in simulation.</p>
+        <div class="project-tech">
+          <span class="tech-badge">Python</span><span class="tech-badge">MATLAB</span><span class="tech-badge">IK Solver</span>
+          <span class="tech-badge">DH Parameters</span><span class="tech-badge">Trajectory</span>
+        </div>
+        <a href="https://github.com/MedisettiRenukeswar" target="_blank" rel="noopener" class="project-link">
+          View on GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- P6 -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-num">PROJECT 06</span>
+          <span class="project-date">Apr – May 2026</span>
+        </div>
+        <h3>Line-Following Robot</h3>
+        <p class="project-desc">Designed and built an autonomous line-following robot using Arduino and IR sensors. Programmed motor control logic via PWM signals through an L298N motor driver for smooth navigation. Implemented closed-loop autonomous control from sensor acquisition to actuator response.</p>
+        <div class="project-tech">
+          <span class="tech-badge">Arduino</span><span class="tech-badge">Embedded C</span><span class="tech-badge">IR Sensors</span>
+          <span class="tech-badge">L298N</span><span class="tech-badge">PWM</span>
+        </div>
+        <a href="https://github.com/MedisettiRenukeswar" target="_blank" rel="noopener" class="project-link">
+          View on GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- P7 -->
+      <div class="project-card">
+        <div class="project-meta">
+          <span class="project-num">PROJECT 07 · Final Year</span>
+          <span class="project-date">Aug 2024 – Feb 2025</span>
+        </div>
+        <h3>Attendance Management System Using Face Recognition</h3>
+        <p class="project-desc">Built a full-stack automated attendance system using deep learning face recognition (FaceNet/dlib) achieving 97%+ accuracy. Integrated a real-time alert system and analytical dashboard, reducing manual marking time by 90% with a scalable MERN backend.</p>
+        <div class="project-tech">
+          <span class="tech-badge">Python</span><span class="tech-badge">OpenCV</span><span class="tech-badge">FaceNet</span>
+          <span class="tech-badge">dlib</span><span class="tech-badge">MERN Stack</span><span class="tech-badge">MongoDB</span>
+        </div>
+        <a href="https://github.com/MedisettiRenukeswar" target="_blank" rel="noopener" class="project-link">
+          View on GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════ CERTIFICATIONS ═════ -->
+<section id="certifications">
+  <div class="container">
+    <span class="section-label">Credentials</span>
+    <h2 class="section-title">Certifications</h2>
+    <p class="section-sub">Industry-recognised certifications across robotics, cloud, AI/ML, and software development.</p>
+    <div class="certs-grid reveal">
+
+      <div class="cert-card">
+        <div class="cert-icon">🤖</div>
+        <div>
+          <h4>Modern Robotics Specialization (Courses 1–6)</h4>
+          <p class="cert-issuer">Coursera · Northwestern University</p>
+          <p class="cert-date">Oct 2025 – Ongoing · Course 1 &amp; 2 Completed</p>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🎯</div>
+        <div>
+          <h4>micro1 AI Interview Certification</h4>
+          <p class="cert-issuer">micro1 · Aspiring Robotics Engineer</p>
+          <p class="cert-date">May 2026 · ID: micro1-2026-AI</p>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">👁</div>
+        <div>
+          <h4>OpenCV.js, TensorFlow.js, YOLOv8</h4>
+          <p class="cert-issuer">Udemy · Computer Vision &amp; Web Integration</p>
+          <p class="cert-date">Apr 2026 · ID: UC-3d905c2f</p>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">☁</div>
+        <div>
+          <h4>AWS Academy – Machine Learning Foundations</h4>
+          <p class="cert-issuer">Amazon Web Services</p>
+          <p class="cert-date">Oct 2024</p>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🔷</div>
+        <div>
+          <h4>Microsoft Certified: Azure Fundamentals</h4>
+          <p class="cert-issuer">Simplilearn</p>
+          <p class="cert-date">Mar 2026</p>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🔷</div>
+        <div>
+          <h4>Introduction to Azure Services</h4>
+          <p class="cert-issuer">Simplilearn</p>
+          <p class="cert-date">Mar 2026 · ID: 9986845</p>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">💻</div>
+        <div>
+          <h4>Full Stack Web Dev / Data Science / AI</h4>
+          <p class="cert-issuer">Udemy</p>
+          <p class="cert-date">Oct 2022 · ID: UC-eec08422</p>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🐍</div>
+        <div>
+          <h4>Python Certification</h4>
+          <p class="cert-issuer">HackerRank</p>
+          <p class="cert-date">2023</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ EXPERIENCE ═══ -->
+<section id="experience">
+  <div class="container">
+    <span class="section-label">Work History</span>
+    <h2 class="section-title">Experience &amp; Internships</h2>
+    <p class="section-sub">Practical exposure through virtual internships with global technology organisations.</p>
+    <div class="exp-cards reveal">
+
+      <div class="exp-card">
+        <div>
+          <p class="exp-role">AI / ML Virtual Internship</p>
+          <p class="exp-company">Google · via Forage (Virtual Experience Program)</p>
+          <ul class="exp-points">
+            <li>Explored Google's AI/ML product ecosystem including Vertex AI, AutoML, and TensorFlow applications in production environments.</li>
+            <li>Completed hands-on simulated tasks involving ML model evaluation, data preprocessing, and AI-driven decision pipelines.</li>
+            <li>Gained practical understanding of how Google integrates ML into large-scale consumer and enterprise products.</li>
+          </ul>
+        </div>
+        <div class="exp-badge">Virtual · AI/ML</div>
+      </div>
+
+      <div class="exp-card">
+        <div>
+          <p class="exp-role">Cloud Networking Virtual Internship</p>
+          <p class="exp-company">Juniper Networks · via Forage (Virtual Experience Program)</p>
+          <ul class="exp-points">
+            <li>Gained exposure to Juniper's cloud networking solutions including SD-WAN, network automation, and cloud-managed infrastructure.</li>
+            <li>Completed simulated tasks involving network design, troubleshooting, and cloud connectivity scenarios.</li>
+            <li>Developed a solid understanding of enterprise-grade networking and its integration with cloud platforms.</li>
+          </ul>
+        </div>
+        <div class="exp-badge">Virtual · Cloud</div>
+      </div>
+
+      <div class="exp-card">
+        <div>
+          <p class="exp-role">Robotics &amp; Embedded Systems Intern</p>
+          <p class="exp-company">Pantech.AI · Jan – Mar 2025</p>
+          <ul class="exp-points">
+            <li>Built and programmed embedded robotics systems including a line-following robot using Arduino, IR sensors, and L298N motor driver.</li>
+            <li>Worked on sensor interfacing, PWM-based motor control, and closed-loop autonomous navigation systems.</li>
+            <li>Gained practical experience in the full hardware-software integration cycle for embedded robotic platforms.</li>
+          </ul>
+        </div>
+        <div class="exp-badge">Jan – Mar 2025</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CONTACT ═════ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-info reveal">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title">Let's Work Together</h2>
+        <p>I'm open to full-time roles, research collaborations, and exciting robotics and AI projects. Feel free to reach out — I respond within 24 hours.</p>
+        <div class="contact-links">
+          <a href="mailto:medisettirenukeswar83@gmail.com" class="contact-link-item">
+            <div class="contact-link-icon">✉</div>
+            <div>
+              <p class="clabel">Email</p>
+              <p class="cvalue">medisettirenukeswar83@gmail.com</p>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/renukeswar-medisetti-rk/" target="_blank" rel="noopener" class="contact-link-item">
+            <div class="contact-link-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#2563EB"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <div>
+              <p class="clabel">LinkedIn</p>
+              <p class="cvalue">renukeswar-medisetti-rk</p>
+            </div>
+          </a>
+          <a href="https://github.com/MedisettiRenukeswar" target="_blank" rel="noopener" class="contact-link-item">
+            <div class="contact-link-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0B1C3D"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </div>
+            <div>
+              <p class="clabel">GitHub</p>
+              <p class="cvalue">MedisettiRenukeswar</p>
+            </div>
+          </a>
+          <div class="contact-link-item">
+            <div class="contact-link-icon">📍</div>
+            <div>
+              <p class="clabel">Location</p>
+              <p class="cvalue">Hyderabad, Telangana, India</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal">
+        <h3>Send a Message</h3>
+        <!--
+        ╔══════════════════════════════════════════════════════════╗
+        ║              EMAILJS SETUP (3 steps)                    ║
+        ║                                                          ║
+        ║  1. Go to https://www.emailjs.com and create a          ║
+        ║     free account.                                        ║
+        ║                                                          ║
+        ║  2. Create an Email Service (e.g. Gmail) and note your  ║
+        ║     SERVICE_ID.                                          ║
+        ║                                                          ║
+        ║  3. Create an Email Template with these variables:      ║
+        ║       {{from_name}}, {{from_email}},                    ║
+        ║       {{subject}}, {{message}}                          ║
+        ║     Note your TEMPLATE_ID.                              ║
+        ║                                                          ║
+        ║  4. Go to Account > API Keys, copy your PUBLIC_KEY.     ║
+        ║                                                          ║
+        ║  5. Replace the three placeholders below:               ║
+        ║       YOUR_PUBLIC_KEY                                    ║
+        ║       YOUR_SERVICE_ID                                    ║
+        ║       YOUR_TEMPLATE_ID                                   ║
+        ╚══════════════════════════════════════════════════════════╝
+        -->
+        <form id="contactForm" onsubmit="sendEmail(event)">
+          <div class="form-group">
+            <label for="from_name">Full Name</label>
+            <input type="text" id="from_name" name="from_name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="from_email">Email Address</label>
+            <input type="email" id="from_email" name="from_email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Regarding an opportunity / collaboration" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
+          <div id="formStatus" class="form-status"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Renukeswar <span>Medisetti</span></div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/MedisettiRenukeswar" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/renukeswar-medisetti-rk/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <p class="footer-copy">© 2026 Renukeswar Medisetti · Built for Netlify deployment</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ── EmailJS Init ── Replace YOUR_PUBLIC_KEY ── */
+  emailjs.init("YOUR_PUBLIC_KEY");
+
+  function sendEmail(e) {
+    e.preventDefault();
+    const btn    = document.getElementById("submitBtn");
+    const status = document.getElementById("formStatus");
+    btn.disabled = true;
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Sending…';
+
+    emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", "#contactForm")
+      .then(() => {
+        status.className = "form-status success";
+        status.textContent = "✓ Message sent! I'll get back to you within 24 hours.";
+        document.getElementById("contactForm").reset();
+      }, () => {
+        status.className = "form-status error";
+        status.textContent = "⚠ Something went wrong. Please email me directly at medisettirenukeswar83@gmail.com";
+      })
+      .finally(() => {
+        btn.disabled = false;
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message';
+      });
+  }
+
+  /* ── Mobile menu ── */
+  function toggleMenu() { document.getElementById("mobileMenu").classList.toggle("open"); }
+  function closeMenu()  { document.getElementById("mobileMenu").classList.remove("open"); }
+
+  /* ── Scroll reveal ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+  /* ── Active nav link highlight ── */
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-links a");
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute("href") === "#" + current ? "var(--navy)" : "";
+    });
+  });
+</script>
+</body>
+</html>
