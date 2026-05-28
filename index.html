@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Renukeswar Medisetti | Robotics & AI Engineer</title>
   <meta name="description" content="Portfolio of Renukeswar Medisetti – Robotics & AI Engineer specializing in autonomous systems, computer vision, ROS2, and full-stack development." />
-
+ 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
-
+ 
   <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
+ 
   <style>
     /* ── CSS Variables ─────────────────────────────────────── */
     :root {
@@ -32,7 +32,7 @@
       --shadow-lg: 0 8px 40px rgba(11,28,61,0.13);
       --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
     }
-
+ 
     /* ── Reset ─────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -46,14 +46,14 @@
     }
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
-
+ 
     /* ── Typography ────────────────────────────────────────── */
     h1,h2,h3,h4 { font-family: 'Playfair Display', serif; line-height: 1.25; color: var(--navy); }
     h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 800; }
     h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; }
     h3 { font-size: 1.2rem; font-weight: 600; }
     p  { color: var(--muted); font-weight: 300; }
-
+ 
     /* ── Layout ────────────────────────────────────────────── */
     .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
     section { padding: 96px 0; }
@@ -71,7 +71,7 @@
     }
     .section-title { margin-bottom: 8px; }
     .section-sub  { color: var(--muted); margin-bottom: 48px; max-width: 520px; font-size: 1rem; }
-
+ 
     /* ── Navbar ────────────────────────────────────────────── */
     #navbar {
       position: fixed; top: 0; left: 0; right: 0; z-index: 999;
@@ -123,7 +123,7 @@
     }
     .mobile-menu.open { display: flex; }
     .mobile-menu a { font-size: 0.95rem; font-weight: 500; color: var(--text); padding: 6px 0; border-bottom: 1px solid var(--border); }
-
+ 
     /* ── Hero ──────────────────────────────────────────────── */
     #hero {
       min-height: 100vh;
@@ -195,7 +195,7 @@
       transition: all var(--transition); background: var(--surface);
     }
     .btn-outline:hover { border-color: var(--navy); color: var(--navy); transform: translateY(-2px); box-shadow: var(--shadow); }
-
+ 
     /* Hero visual */
     .hero-visual {
       display: flex; justify-content: center; align-items: center;
@@ -241,7 +241,7 @@
     .chip2 { bottom: 60px; left: -20px; animation: float 3s ease-in-out 1s infinite; }
     .chip3 { bottom: 24px; right: 20px; animation: float 3s ease-in-out 1.5s infinite; }
     @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-
+ 
     /* Stats row */
     .hero-stats {
       display: flex; gap: 32px; margin-top: 40px; flex-wrap: wrap;
@@ -250,10 +250,10 @@
     .stat { text-align: center; }
     .stat-num { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); display: block; }
     .stat-lbl { font-size: 0.72rem; color: var(--muted); font-weight: 500; letter-spacing: 0.05em; }
-
+ 
     @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
     @keyframes fadeIn { from{opacity:0} to{opacity:1} }
-
+ 
     /* ── About ─────────────────────────────────────────────── */
     #about { background: var(--surface); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
@@ -274,7 +274,7 @@
     }
     .highlight-card h4 { font-size: 0.9rem; color: var(--navy); margin-bottom: 2px; font-family: 'DM Sans', sans-serif; font-weight: 600; }
     .highlight-card p { font-size: 0.82rem; margin: 0; }
-
+ 
     /* ── Education ─────────────────────────────────────────── */
     #education { background: var(--bg); }
     .edu-timeline { display: flex; flex-direction: column; gap: 0; }
@@ -314,7 +314,7 @@
       background: var(--gold-lt); color: #92400e;
       padding: 2px 10px; border-radius: 100px; border: 1px solid #fcd34d;
     }
-
+ 
     /* ── Skills ────────────────────────────────────────────── */
     #skills { background: var(--surface); }
     .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -343,7 +343,7 @@
       transition: all var(--transition);
     }
     .pill:hover { background: var(--blue-lt); border-color: var(--blue); color: var(--blue); }
-
+ 
     /* ── Projects ──────────────────────────────────────────── */
     #projects { background: var(--bg); }
     .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
@@ -387,7 +387,7 @@
     .project-link:hover { gap: 10px; }
     .project-link svg { transition: transform var(--transition); }
     .project-link:hover svg { transform: translateX(3px); }
-
+ 
     /* ── Certifications ────────────────────────────────────── */
     #certifications { background: var(--surface); }
     .certs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -405,7 +405,7 @@
     .cert-card h4 { font-size: 0.82rem; font-family: 'DM Sans', sans-serif; font-weight: 600; color: var(--navy); margin-bottom: 3px; line-height: 1.3; }
     .cert-card .cert-issuer { font-size: 0.72rem; color: var(--muted); margin: 0; }
     .cert-card .cert-date { font-size: 0.68rem; color: var(--blue); font-weight: 500; margin-top: 4px; }
-
+ 
     /* ── Experience ────────────────────────────────────────── */
     #experience { background: var(--bg); }
     .exp-cards { display: flex; flex-direction: column; gap: 20px; }
@@ -428,7 +428,7 @@
       font-size: 0.72rem; font-weight: 600; color: var(--blue);
       white-space: nowrap; text-align: center;
     }
-
+ 
     /* ── Contact ───────────────────────────────────────────── */
     #contact { background: var(--surface); }
     .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
@@ -449,7 +449,7 @@
     }
     .contact-link-item .clabel { font-size: 0.7rem; color: var(--muted); margin: 0; }
     .contact-link-item .cvalue { font-size: 0.88rem; color: var(--navy); font-weight: 500; }
-
+ 
     /* Form */
     .contact-form-wrap { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
     .contact-form-wrap h3 { font-size: 1.1rem; font-family: 'DM Sans', sans-serif; font-weight: 600; margin-bottom: 24px; }
@@ -483,7 +483,7 @@
     }
     .form-status.success { background: #ecfdf5; border: 1px solid #6ee7b7; color: #065f46; display: block; }
     .form-status.error { background: #fef2f2; border: 1px solid #fca5a5; color: #7f1d1d; display: block; }
-
+ 
     /* ── Footer ────────────────────────────────────────────── */
     footer {
       background: var(--navy); color: rgba(255,255,255,0.6);
@@ -496,11 +496,11 @@
     .footer-links a { font-size: 0.82rem; color: rgba(255,255,255,0.5); transition: color var(--transition); }
     .footer-links a:hover { color: #fff; }
     .footer-copy { font-size: 0.78rem; }
-
+ 
     /* ── Scroll Reveal ─────────────────────────────────────── */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.visible { opacity: 1; transform: none; }
-
+ 
     /* ── Responsive ────────────────────────────────────────── */
     @media (max-width: 900px) {
       .nav-links { display: none; }
@@ -528,7 +528,7 @@
   </style>
 </head>
 <body>
-
+ 
 <!-- ═══════════════════════════════════ NAVBAR ══ -->
 <nav id="navbar">
   <div class="container nav-inner">
@@ -556,7 +556,7 @@
   <a href="#experience" onclick="closeMenu()">Experience</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
-
+ 
 <!-- ═══════════════════════════════════ HERO ════ -->
 <section id="hero">
   <div class="container">
@@ -601,7 +601,7 @@
           <div class="stat"><span class="stat-num">3+</span><span class="stat-lbl">Internships</span></div>
         </div>
       </div>
-
+ 
       <div class="hero-visual">
         <div class="photo-frame">
           <img src="profile_pic.jpeg" alt="Renukeswar Medisetti" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:22px;position:relative;z-index:1;" />
@@ -613,7 +613,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ════════════════════════════════════ ABOUT ══ -->
 <section id="about">
   <div class="container">
@@ -658,7 +658,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ══════════════════════════════ EDUCATION ════ -->
 <section id="education">
   <div class="container">
@@ -666,7 +666,7 @@
     <h2 class="section-title">Education</h2>
     <p class="section-sub">A strong academic foundation across engineering, mathematics, and computing.</p>
     <div class="edu-timeline reveal">
-
+ 
       <div class="edu-item">
         <div class="edu-year">2021 – 2025</div>
         <div class="edu-content">
@@ -678,7 +678,7 @@
           </div>
         </div>
       </div>
-
+ 
       <div class="edu-item">
         <div class="edu-year">2019 – 2021</div>
         <div class="edu-content">
@@ -690,7 +690,7 @@
           </div>
         </div>
       </div>
-
+ 
       <div class="edu-item">
         <div class="edu-year">2018 – 2019</div>
         <div class="edu-content">
@@ -702,11 +702,11 @@
           </div>
         </div>
       </div>
-
+ 
     </div>
   </div>
 </section>
-
+ 
 <!-- ═══════════════════════════════════ SKILLS ══ -->
 <section id="skills">
   <div class="container">
@@ -714,7 +714,7 @@
     <h2 class="section-title">Skills</h2>
     <p class="section-sub">A broad technical stack spanning robotics, AI/ML, cloud, and web development.</p>
     <div class="skills-grid reveal">
-
+ 
       <div class="skill-group">
         <div class="skill-group-title">
           <div class="skill-group-icon">🤖</div>
@@ -726,7 +726,7 @@
           <span class="pill">EKF</span><span class="pill">Robotic Grasping</span>
         </div>
       </div>
-
+ 
       <div class="skill-group">
         <div class="skill-group-title">
           <div class="skill-group-icon">👁</div>
@@ -738,7 +738,7 @@
           <span class="pill">TensorFlow.js</span><span class="pill">OpenCV.js</span>
         </div>
       </div>
-
+ 
       <div class="skill-group">
         <div class="skill-group-title">
           <div class="skill-group-icon">🧠</div>
@@ -750,7 +750,7 @@
           <span class="pill">Generative AI</span>
         </div>
       </div>
-
+ 
       <div class="skill-group">
         <div class="skill-group-title">
           <div class="skill-group-icon">☁</div>
@@ -761,7 +761,7 @@
           <span class="pill">Docker</span><span class="pill">Git / GitHub</span><span class="pill">Linux</span>
         </div>
       </div>
-
+ 
       <div class="skill-group">
         <div class="skill-group-title">
           <div class="skill-group-icon">💻</div>
@@ -773,7 +773,7 @@
           <span class="pill">REST APIs</span>
         </div>
       </div>
-
+ 
       <div class="skill-group">
         <div class="skill-group-title">
           <div class="skill-group-icon">⚙</div>
@@ -784,11 +784,11 @@
           <span class="pill">MATLAB</span><span class="pill">SQL</span><span class="pill">Arduino</span>
         </div>
       </div>
-
+ 
     </div>
   </div>
 </section>
-
+ 
 <!-- ════════════════════════════════ PROJECTS ═══ -->
 <section id="projects">
   <div class="container">
@@ -796,7 +796,7 @@
     <h2 class="section-title">Projects</h2>
     <p class="section-sub">Hands-on robotics and AI projects spanning autonomous navigation, vision systems, and full-stack applications.</p>
     <div class="projects-grid reveal">
-
+ 
       <!-- P1 -->
       <div class="project-card">
         <div class="project-meta">
@@ -813,7 +813,7 @@
           View on GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
-
+ 
       <!-- P2 -->
       <div class="project-card">
         <div class="project-meta">
@@ -830,7 +830,7 @@
           View on GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
-
+ 
       <!-- P3 -->
       <div class="project-card">
         <div class="project-meta">
@@ -847,7 +847,7 @@
           View on GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
-
+ 
       <!-- P4 -->
       <div class="project-card">
         <div class="project-meta">
@@ -864,7 +864,7 @@
           View on GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
-
+ 
       <!-- P5 -->
       <div class="project-card">
         <div class="project-meta">
@@ -881,7 +881,7 @@
           View on GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
-
+ 
       <!-- P6 -->
       <div class="project-card">
         <div class="project-meta">
@@ -898,7 +898,7 @@
           View on GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
-
+ 
       <!-- P7 -->
       <div class="project-card">
         <div class="project-meta">
@@ -915,11 +915,11 @@
           View on GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
-
+ 
     </div>
   </div>
 </section>
-
+ 
 <!-- ════════════════════════ CERTIFICATIONS ═════ -->
 <section id="certifications">
   <div class="container">
@@ -927,7 +927,7 @@
     <h2 class="section-title">Certifications</h2>
     <p class="section-sub">Industry-recognised certifications across robotics, cloud, AI/ML, and software development.</p>
     <div class="certs-grid reveal">
-
+ 
       <div class="cert-card">
         <div class="cert-icon">🤖</div>
         <div>
@@ -936,7 +936,7 @@
           <p class="cert-date">Oct 2025 – Ongoing · Course 1 &amp; 2 Completed</p>
         </div>
       </div>
-
+ 
       <div class="cert-card">
         <div class="cert-icon">🎯</div>
         <div>
@@ -945,7 +945,7 @@
           <p class="cert-date">May 2026 · ID: micro1-2026-AI</p>
         </div>
       </div>
-
+ 
       <div class="cert-card">
         <div class="cert-icon">👁</div>
         <div>
@@ -954,7 +954,7 @@
           <p class="cert-date">Apr 2026 · ID: UC-3d905c2f</p>
         </div>
       </div>
-
+ 
       <div class="cert-card">
         <div class="cert-icon">☁</div>
         <div>
@@ -963,7 +963,7 @@
           <p class="cert-date">Oct 2024</p>
         </div>
       </div>
-
+ 
       <div class="cert-card">
         <div class="cert-icon">🔷</div>
         <div>
@@ -972,7 +972,7 @@
           <p class="cert-date">Mar 2026</p>
         </div>
       </div>
-
+ 
       <div class="cert-card">
         <div class="cert-icon">🔷</div>
         <div>
@@ -981,7 +981,7 @@
           <p class="cert-date">Mar 2026 · ID: 9986845</p>
         </div>
       </div>
-
+ 
       <div class="cert-card">
         <div class="cert-icon">💻</div>
         <div>
@@ -990,7 +990,7 @@
           <p class="cert-date">Oct 2022 · ID: UC-eec08422</p>
         </div>
       </div>
-
+ 
       <div class="cert-card">
         <div class="cert-icon">🐍</div>
         <div>
@@ -999,11 +999,11 @@
           <p class="cert-date">2023</p>
         </div>
       </div>
-
+ 
     </div>
   </div>
 </section>
-
+ 
 <!-- ══════════════════════════════ EXPERIENCE ═══ -->
 <section id="experience">
   <div class="container">
@@ -1011,7 +1011,7 @@
     <h2 class="section-title">Experience &amp; Internships</h2>
     <p class="section-sub">Practical exposure through virtual internships with global technology organisations.</p>
     <div class="exp-cards reveal">
-
+ 
       <div class="exp-card">
         <div>
           <p class="exp-role">AI / ML Virtual Internship</p>
@@ -1024,7 +1024,7 @@
         </div>
         <div class="exp-badge">Virtual · AI/ML</div>
       </div>
-
+ 
       <div class="exp-card">
         <div>
           <p class="exp-role">Cloud Networking Virtual Internship</p>
@@ -1037,7 +1037,7 @@
         </div>
         <div class="exp-badge">Virtual · Cloud</div>
       </div>
-
+ 
       <div class="exp-card">
         <div>
           <p class="exp-role">Robotics &amp; Embedded Systems Intern</p>
@@ -1050,11 +1050,11 @@
         </div>
         <div class="exp-badge">Jan – Mar 2025</div>
       </div>
-
+ 
     </div>
   </div>
 </section>
-
+ 
 <!-- ═══════════════════════════════ CONTACT ═════ -->
 <section id="contact">
   <div class="container">
@@ -1098,32 +1098,9 @@
           </div>
         </div>
       </div>
-
+ 
       <div class="contact-form-wrap reveal">
         <h3>Send a Message</h3>
-        <!--
-        ╔══════════════════════════════════════════════════════════╗
-        ║              EMAILJS SETUP (3 steps)                    ║
-        ║                                                          ║
-        ║  1. Go to https://www.emailjs.com and create a          ║
-        ║     free account.                                        ║
-        ║                                                          ║
-        ║  2. Create an Email Service (e.g. Gmail) and note your  ║
-        ║     SERVICE_ID.                                          ║
-        ║                                                          ║
-        ║  3. Create an Email Template with these variables:      ║
-        ║       {{from_name}}, {{from_email}},                    ║
-        ║       {{subject}}, {{message}}                          ║
-        ║     Note your TEMPLATE_ID.                              ║
-        ║                                                          ║
-        ║  4. Go to Account > API Keys, copy your PUBLIC_KEY.     ║
-        ║                                                          ║
-        ║  5. Replace the three placeholders below:               ║
-        ║       YOUR_PUBLIC_KEY                                    ║
-        ║       YOUR_SERVICE_ID                                    ║
-        ║       YOUR_TEMPLATE_ID                                   ║
-        ╚══════════════════════════════════════════════════════════╝
-        -->
         <form id="contactForm" onsubmit="sendEmail(event)">
           <div class="form-group">
             <label for="from_name">Full Name</label>
@@ -1151,7 +1128,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ═══════════════════════════════════ FOOTER ══ -->
 <footer>
   <div class="container">
@@ -1169,19 +1146,26 @@
     </div>
   </div>
 </footer>
-
+ 
 <script>
   /* ── EmailJS Init ── Replace YOUR_PUBLIC_KEY ── */
-  emailjs.init("YOUR_PUBLIC_KEY");
-
+  emailjs.init("NcCkjAAPBRIVNiG5q");
+ 
   function sendEmail(e) {
     e.preventDefault();
     const btn    = document.getElementById("submitBtn");
     const status = document.getElementById("formStatus");
     btn.disabled = true;
     btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Sending…';
-
-    emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", "#contactForm")
+ 
+    const templateParams = {
+      name:    document.getElementById("from_name").value,
+      email:   document.getElementById("from_email").value,
+      title:   document.getElementById("subject").value,
+      message: document.getElementById("message").value
+    };
+ 
+    emailjs.send("service_4oq1bns", "template_bmnznni", templateParams)
       .then(() => {
         status.className = "form-status success";
         status.textContent = "✓ Message sent! I'll get back to you within 24 hours.";
@@ -1195,17 +1179,17 @@
         btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message';
       });
   }
-
+ 
   /* ── Mobile menu ── */
   function toggleMenu() { document.getElementById("mobileMenu").classList.toggle("open"); }
   function closeMenu()  { document.getElementById("mobileMenu").classList.remove("open"); }
-
+ 
   /* ── Scroll reveal ── */
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
+ 
   /* ── Active nav link highlight ── */
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-links a");
@@ -1219,3 +1203,4 @@
 </script>
 </body>
 </html>
+ 
